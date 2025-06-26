@@ -31,6 +31,14 @@ Use a virtual environment to isolate dependencies:
                          # Windows (PowerShell): .venv\Scripts\Activate.ps1
     pip install -r requirements.txt
 ```
+To deactivate the environment:
+```bash
+    deactivate
+```
+To reactivate later:
+```bash
+    source .venv/bin/activate  # Or use the appropriate path for Windows
+```
 
 If requirements.txt is missing, you can generate it with:
 
