@@ -27,7 +27,8 @@ Use a virtual environment to isolate dependencies:
 
 ```bash
     python3 -m venv .venv
-    source .venv/bin/activate # Windows: .venv\Scripts\activate
+    source .venv/bin/activate  # Windows (CMD): .venv\Scripts\activate.bat
+                         # Windows (PowerShell): .venv\Scripts\Activate.ps1
     pip install -r requirements.txt
 ```
 
@@ -114,7 +115,38 @@ python3 f1Calendar.py --check-calendar
   📌 Adding to calendar: F1: Libres 1 - GP de Austria 🏁 Red Bull Ring at 2025-06-27 06:30
   ...
 
----
+## 📅 Automate with Cron (Linux/macOS)
+
+To run the script every Thursday at 10 AM and log output:
+
+```bash
+    crontab -e
+```
+
+Add this line:
+
+```bash
+    0 10 \* \* 4 cd /path/to/your/project && .venv/bin/python f1Calendar.py --city "Bogotá" >> cron.log 2>&1
+```
+
+    Make sure the .venv is activated correctly in the path.
+    cron.log will store the output of each run.
+
+To remove or edit the cron job:
+
+```bash
+    crontab -e
+```
+
+Then delete or modify the line related to f1Calendar.py.
+
+To view current cron jobs:
+
+```bash
+    crontab -l
+```
+
+## To completely clear all cron jobs:
 
 ## 📌 How It Works
 
