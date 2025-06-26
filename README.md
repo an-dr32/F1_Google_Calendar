@@ -143,8 +143,6 @@ python3 f1Calendar.py --check-calendar
 
 ## 📫 Author - an-dr32
 
-Feel free to fork, improve, and contribute!
-
 ---
 
 Enjoy your races ⚡️!
