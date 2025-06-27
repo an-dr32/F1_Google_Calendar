@@ -113,6 +113,24 @@ No UI or input prompts in non-authenticated flow.
 
 ---
 
+## 💡 Key Functions Summary
+
+- parse_args() → CLI interface
+- scrape_f1_schedule(city) → Parses schedule table and session times
+- get_gp_title() → Extracts GP name (used in event summary)
+- get_calendar_service() → Auth flow and returns service
+- add_event_to_calendar(service, schedule, gp_title) → Adds deduped events with reminders
+
+------
+
+## 🧪 Testing Tips
+
+- Use --dry-run frequently during dev to avoid filling calendar
+- Delete token.json to reset OAuth scopes if needed
+- Use print(schedule) or print(args) for quick inspection
+
+---
+
 ## 💬 Questions?
 
 Reach out to [@an-dr32](https://github.com/an-dr32) or open an issue on GitHub.

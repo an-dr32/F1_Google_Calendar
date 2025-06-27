@@ -12,7 +12,9 @@ Automatically fetch Formula 1 session times from F1Latam.com and add them to you
 - 🔁 Deduplicates calendar entries.
 - 🕒 Supports dry-run mode to preview schedule without creating events.
 - 🔔 Adds reminders (12h, 30min, 10min before each session)
+- 🎨 Colors events Tomato red
 - 🧠 Validates your Google Calendar connection (--check-calendar)
+- 📝 Automatically logs execution for scheduled cron jobs
 
 ---
 
@@ -111,8 +113,21 @@ python3 f1Calendar.py --city "Bogotá"
 ```bash
 python3 f1Calendar.py --check-calendar
 ```
-
 > The first time you run the script, it will open a browser window to authenticate your Google account. A `token.json` file will be created.
+
+## CLI Options:
+
+* --city "City Name" → Required for schedule
+
+* --dry-run → Preview events without adding to calendar
+
+* --timezone America/Bogota → Override timezone if needed
+
+* --list-cities → List all available cities (scraped from site)
+
+* --check-calendar → Validate Google Calendar access
+
+
 
 ## ✅ Example Output
 
@@ -155,6 +170,21 @@ To view current cron jobs:
 ```
 
 ## To completely clear all cron jobs:
+```bash
+    crontab -r
+```
+
+## 🗂 Diagram
+
+f1Calendar.py
+├── parse_args()           # Handle CLI input and options
+├── scrape_f1_schedule()   # Extract F1 schedule for the given city
+├── get_gp_title()         # Extract Grand Prix name from the webpage
+├── get_calendar_service() # Authenticate with Google Calendar
+├── add_event_to_calendar()# Insert events with deduplication and reminders
+├── main()                 # Orchestrates CLI, scraping, parsing, and calendar sync
+
+
 
 ## 📌 How It Works
 
